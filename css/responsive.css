@@ -1,46 +1,751 @@
-@media (max-width: 900px) {
-    header h1 {
-        font-size: 2.4em;
-    }
+/* =====================================================
+   RESPONSIVE CSS - Roleta da Sorte
+   Suporte: Desktop, Tablet, Mobile (até 320px)
+   ===================================================== */
 
-    .wheel {
-        width: 420px;
-        height: 420px;
+/* ===== DESKTOP GRANDE (1200px+) ===== */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1100px;
     }
-
-    .wheel-segment span {
-        font-size: 16px;
-        min-width: 160px;
+    
+    .options-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .wheel-container canvas {
+        width: 600px;
+        height: 600px;
     }
 }
 
-@media (max-width: 600px) {
+/* ===== TABLET LANDSCAPE (900px - 1199px) ===== */
+@media (max-width: 1199px) and (min-width: 901px) {
     .container {
-        padding: 20px;
+        max-width: 900px;
+        padding: 30px;
     }
+    
+    header h1 {
+        font-size: 2.5em;
+    }
+    
+    .options-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .wheel-container canvas {
+        width: 500px;
+        height: 500px;
+    }
+}
 
+/* ===== TABLET PORTRAIT (601px - 900px) ===== */
+@media (max-width: 900px) {
+    .container {
+        max-width: 100%;
+        padding: 25px;
+    }
+    
+    header h1 {
+        font-size: 2.2em;
+    }
+    
+    header p {
+        font-size: 1em;
+    }
+    
+    .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    
+    .option-card {
+        padding: 25px 20px;
+    }
+    
+    .option-card i {
+        font-size: 2.5em;
+    }
+    
+    .option-card h2 {
+        font-size: 1.3em;
+    }
+    
+    /* Roleta */
+    .wheel-container {
+        margin: 20px auto;
+    }
+    
+    .wheel-container canvas {
+        width: 420px;
+        height: 420px;
+    }
+    
+    .spin-button {
+        padding: 14px 35px;
+        font-size: 1.1em;
+    }
+    
+    .wheel-pointer {
+        border-width: 18px 14px 18px 0;
+    }
+    
+    /* Settings */
+    .settings-tabs {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .tab-btn {
+        flex: 1 1 auto;
+        min-width: 80px;
+        padding: 10px 15px;
+        font-size: 0.95em;
+    }
+    
+    .theme-selector {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .theme-btn {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    
+    .wheel-colors {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .rgb-controls {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== MOBILE GRANDE (481px - 600px) ===== */
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .container {
+        padding: 20px 15px;
+        margin: 10px;
+        border-radius: 16px;
+    }
+    
+    header {
+        margin-bottom: 20px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+        line-height: 1.2;
+    }
+    
+    header p {
+        font-size: 0.9em;
+    }
+    
     .btn-back {
         position: static;
         display: inline-block;
-        margin-bottom: 12px;
+        margin-bottom: 15px;
+        padding: 8px 16px;
+        font-size: 0.9em;
     }
-
-    .wheel {
+    
+    /* Grid de opções */
+    .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .option-card {
+        padding: 20px 15px;
+    }
+    
+    .option-card i {
+        font-size: 2.2em;
+    }
+    
+    .option-card h2 {
+        font-size: 1.1em;
+    }
+    
+    .option-card p {
+        font-size: 0.85em;
+    }
+    
+    /* Roleta */
+    .wheel-container {
+        margin: 15px auto;
+    }
+    
+    .wheel-container canvas {
         width: 320px;
         height: 320px;
     }
-
+    
     .spin-button {
-        padding: 16px 40px;
-        font-size: 1.2em;
+        padding: 14px 35px;
+        font-size: 1.1em;
+        bottom: -25px;
     }
-
+    
+    .wheel-pointer {
+        right: -12px;
+        border-width: 15px 12px 15px 0;
+    }
+    
+    .result-modal {
+        padding: 20px;
+    }
+    
+    .result-modal h2 {
+        font-size: 1.3em;
+    }
+    
     .result-modal #result-text {
-        font-size: 2em;
+        font-size: 1.8em;
     }
-
+    
+    .btn-retry {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    
     .wheel-controls {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .wheel-controls button {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .empty-warning {
+        font-size: 0.95em;
+        padding: 15px;
+    }
+    
+    /* Settings */
+    .settings-tabs {
+        gap: 6px;
+    }
+    
+    .tab-btn {
+        padding: 10px 12px;
+        font-size: 0.85em;
+        flex: 1 1 45%;
+    }
+    
+    .tab-content {
+        padding: 20px 15px;
+    }
+    
+    .tab-content h2 {
+        font-size: 1.4em;
+    }
+    
+    .tab-content h3 {
+        font-size: 1.1em;
+    }
+    
+    .theme-selector {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .theme-btn {
+        padding: 10px 8px;
+        font-size: 0.8em;
+    }
+    
+    .wheel-colors {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .wheel-colors input[type="color"] {
+        width: 100%;
+        height: 40px;
+    }
+    
+    .itens-lista {
+        max-height: 250px;
+    }
+    
+    .item-input {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .item-input input {
+        width: 100%;
+    }
+    
+    .item-input button {
+        width: 100%;
+    }
+    
+    /* Switch toggle */
+    .switch {
+        transform: scale(0.9);
+    }
+    
+    /* Audio controls */
+    #musica-select {
+        width: 100%;
+    }
+}
+
+/* ===== MOBILE MÉDIO (401px - 480px) ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 12px;
+        margin: 8px;
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .option-card {
+        padding: 18px 12px;
+    }
+    
+    .option-card i {
+        font-size: 2em;
+    }
+    
+    .option-card h2 {
+        font-size: 1em;
+    }
+    
+    .option-card p {
+        font-size: 0.8em;
+        display: none; /* Esconde descrição em telas pequenas */
+    }
+    
+    /* Roleta */
+    .wheel-container canvas {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .spin-button {
+        padding: 12px 28px;
+        font-size: 1em;
+    }
+    
+    .result-modal #result-text {
+        font-size: 1.5em;
+    }
+    
+    /* Settings */
+    .settings-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: 1 1 48%;
+        padding: 10px 8px;
+        font-size: 0.8em;
+    }
+    
+    .theme-selector {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+    
+    .theme-btn {
+        padding: 8px 6px;
+        font-size: 0.75em;
+    }
+    
+    .rgb-controls label {
+        font-size: 0.9em;
+    }
+    
+    .cheat-mode-section button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}
+
+/* ===== MOBILE PEQUENO (321px - 400px) ===== */
+@media (max-width: 400px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 12px 10px;
+        margin: 5px;
+        border-radius: 12px;
+    }
+    
+    header h1 {
+        font-size: 1.35em;
+    }
+    
+    header p {
+        font-size: 0.85em;
+    }
+    
+    .btn-back {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+    
+    .options-grid {
+        gap: 8px;
+    }
+    
+    .option-card {
+        padding: 15px 10px;
+    }
+    
+    .option-card i {
+        font-size: 1.8em;
+    }
+    
+    .option-card h2 {
+        font-size: 0.95em;
+    }
+    
+    /* Roleta */
+    .wheel-container canvas {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .spin-button {
+        padding: 10px 24px;
+        font-size: 0.95em;
+        bottom: -22px;
+    }
+    
+    .wheel-pointer {
+        border-width: 12px 10px 12px 0;
+    }
+    
+    .result-modal {
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .result-modal h2 {
+        font-size: 1.1em;
+    }
+    
+    .result-modal #result-text {
+        font-size: 1.3em;
+        word-break: break-word;
+    }
+    
+    .btn-retry {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    
+    /* Settings */
+    .tab-btn {
+        padding: 8px 6px;
+        font-size: 0.75em;
+    }
+    
+    .tab-content {
+        padding: 15px 10px;
+    }
+    
+    .tab-content h2 {
+        font-size: 1.2em;
+    }
+    
+    .theme-selector {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+    
+    .theme-btn {
+        padding: 7px 5px;
+        font-size: 0.7em;
+    }
+    
+    .wheel-colors {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .wheel-colors input[type="color"] {
+        height: 35px;
+    }
+    
+    .itens-lista .item {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .item-input input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .item-input button {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+}
+
+/* ===== MOBILE MUITO PEQUENO (até 320px) ===== */
+@media (max-width: 320px) {
+    .container {
+        padding: 10px 8px;
+        margin: 3px;
+    }
+    
+    header h1 {
+        font-size: 1.2em;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .option-card {
+        flex-direction: row;
+        text-align: left;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .option-card i {
+        font-size: 1.5em;
+        margin-bottom: 0;
+    }
+    
+    .option-card p {
+        display: block;
+    }
+    
+    /* Roleta */
+    .wheel-container canvas {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .spin-button {
+        padding: 8px 20px;
+        font-size: 0.85em;
+    }
+    
+    .result-modal #result-text {
+        font-size: 1.2em;
+    }
+    
+    /* Settings */
+    .settings-tabs {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        flex: none;
+    }
+    
+    .theme-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wheel-colors {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===== ORIENTAÇÃO LANDSCAPE EM MOBILE ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 15px;
+    }
+    
+    header {
+        margin-bottom: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    header p {
+        display: none;
+    }
+    
+    .options-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .option-card {
+        padding: 15px 10px;
+    }
+    
+    .option-card p {
+        display: none;
+    }
+    
+    /* Roleta em landscape */
+    .wheel-container {
+        margin: 10px auto;
+    }
+    
+    .wheel-container canvas {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .result-modal {
+        padding: 10px;
+        margin: 10px 0;
+    }
+    
+    .wheel-controls {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    /* Settings em landscape */
+    .settings-tabs {
+        flex-wrap: nowrap;
+    }
+    
+    .tab-content {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+}
+
+/* ===== AJUSTES PARA TELAS ALTAS (iPads, etc) ===== */
+@media (min-height: 1000px) and (max-width: 900px) {
+    .wheel-container canvas {
+        width: 450px;
+        height: 450px;
+    }
+    
+    .options-grid {
+        gap: 20px;
+    }
+    
+    .option-card {
+        padding: 30px 25px;
+    }
+}
+
+/* ===== ACESSIBILIDADE: REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .wheel-container canvas {
+        transition: none !important;
+    }
+}
+
+/* ===== MODO ESCURO DO SISTEMA ===== */
+@media (prefers-color-scheme: dark) {
+    /* Aplicar ajustes apenas se o tema não for explicitamente claro */
+    body:not(.theme-pastel):not(.theme-minimalista):not(.theme-citrus) {
+        --system-dark: true;
+    }
+}
+
+/* ===== IMPRESSÃO ===== */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .wheel-container,
+    .spin-button,
+    .btn-back,
+    .wheel-controls,
+    .settings-tabs,
+    .tab-content:not(.active) {
+        display: none !important;
+    }
+    
+    .container {
+        box-shadow: none !important;
+        background: white !important;
+    }
+    
+    .result-modal {
+        border: 2px solid black;
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* ===== TOUCH DEVICES ===== */
+@media (hover: none) and (pointer: coarse) {
+    /* Aumentar áreas de toque */
+    .option-card {
+        min-height: 100px;
+    }
+    
+    .btn-back,
+    .spin-button,
+    .btn-retry,
+    .tab-btn,
+    .theme-btn {
+        min-height: 44px; /* Mínimo recomendado para toque */
+    }
+    
+    .item-input button {
+        min-height: 44px;
+    }
+    
+    .itens-lista .item button {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Remover efeitos hover que não funcionam bem em touch */
+    .option-card:hover {
+        transform: none;
+    }
+    
+    .option-card:active {
+        transform: scale(0.98);
+    }
+    
+    .theme-btn:hover {
+        transform: none;
+    }
+    
+    .theme-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* ===== HIGH DPI SCREENS ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .wheel-container canvas {
+        image-rendering: -webkit-optimize-contrast;
     }
 }
