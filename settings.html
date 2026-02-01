@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurações - Roleta da Sorte</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-rgb">
+    <div class="container">
+        <header>
+            <h1 data-text="⚙️ Configurações">⚙️ Configurações</h1>
+            <a href="index.html" class="btn-back">← Voltar</a>
+        </header>
+        
+        <div class="settings-tabs">
+            <button class="tab-btn active" onclick="showTab('itens', event)">Itens</button>
+            <button class="tab-btn" onclick="showTab('tema', event)">Tema</button>
+            <button class="tab-btn" onclick="showTab('audio', event)">Áudio</button>
+            <button class="tab-btn" onclick="showTab('cheat', event)">Cheat</button>
+        </div>
+        
+        <!-- Tab Itens -->
+        <div id="itens" class="tab-content active">
+            <h2>📋 Itens da Roleta</h2>
+            <div id="itens-lista" class="itens-lista"></div>
+            <div class="item-input">
+                <input type="text" id="novo-item" placeholder="Digite um novo item...">
+                <button onclick="adicionarItem()">➕ Adicionar</button>
+                <button class="btn-danger" onclick="limparItens()">🗑️ Limpar Tudo</button>
+            </div>
+        </div>
+        
+        <!-- Tab Tema -->
+        <div id="tema" class="tab-content">
+            <h2>🎨 Temas Disponíveis</h2>
+            <div class="theme-selector">
+                <button onclick="mudarTema('rgb')" class="theme-btn theme-rgb">RGB</button>
+                <button onclick="mudarTema('neon')" class="theme-btn theme-neon">Neon</button>
+                <button onclick="mudarTema('pastel')" class="theme-btn theme-pastel">Pastel</button>
+                <button onclick="mudarTema('dark')" class="theme-btn theme-dark">Dark</button>
+                <button onclick="mudarTema('colorido')" class="theme-btn theme-colorido">Colorido</button>
+                <button onclick="mudarTema('minimalista')" class="theme-btn theme-minimalista">Minimalista</button>
+                <button onclick="mudarTema('fire')" class="theme-btn theme-fire">Fire</button>
+                <button onclick="mudarTema('ice')" class="theme-btn theme-ice">Ice</button>
+                <button onclick="mudarTema('nature')" class="theme-btn theme-nature">Nature</button>
+                <button onclick="mudarTema('retro')" class="theme-btn theme-retro">Retro</button>
+                <button onclick="mudarTema('space')" class="theme-btn theme-space">Space</button>
+                <button onclick="mudarTema('citrus')" class="theme-btn theme-citrus">Citrus</button>
+                <button onclick="mudarTema('goth')" class="theme-btn theme-goth">Goth</button>
+                <button onclick="mudarTema('tropical')" class="theme-btn theme-tropical">Tropical</button>
+                <button onclick="mudarTema('gaming')" class="theme-btn theme-gaming">Gaming</button>
+            </div>
+            
+            <h3>🎨 Personalizar RGB</h3>
+            <div class="rgb-controls">
+                <label>Cor Base:</label>
+                <input type="color" id="cor-base" value="#ff0000">
+                
+                <label>Saturação:</label>
+                <input type="range" id="saturacao" min="0" max="100" value="80">
+                
+                <label>Brilho:</label>
+                <input type="range" id="brilho" min="0" max="100" value="50">
+                
+                <button onclick="aplicarTemaRGB()">Aplicar RGB</button>
+            </div>
+
+            <h3>🎯 Cores da Roleta</h3>
+            <p class="muted">Escolha as cores dos segmentos (você pode deixar algumas vazias).</p>
+            <label class="switch">
+                <input type="checkbox" id="usar-paleta-tema" checked>
+                <span class="slider"></span>
+            </label>
+            <span>Usar paleta do tema</span>
+            <div class="wheel-colors">
+                <input type="color" id="roleta-cor-1" value="#ff3cac">
+                <input type="color" id="roleta-cor-2" value="#00c6ff">
+                <input type="color" id="roleta-cor-3" value="#ffd166">
+                <input type="color" id="roleta-cor-4" value="#3a86ff">
+                <input type="color" id="roleta-cor-5" value="#06d6a0">
+                <input type="color" id="roleta-cor-6" value="#ff9a9e">
+            </div>
+            <button onclick="aplicarCoresRoleta()" class="btn-default">Aplicar cores da roleta</button>
+        </div>
+        
+        <!-- Tab Áudio -->
+        <div id="audio" class="tab-content">
+            <h2>🎵 Configurações de Áudio</h2>
+            
+            <label class="switch">
+                <input type="checkbox" id="musica-toggle" checked>
+                <span class="slider"></span>
+            </label>
+            <span>Música durante giro</span>
+            
+            <h3>Escolher Música:</h3>
+            <select id="musica-select">
+                <option value="wheel-fortune">Wheel of Fortune</option>
+                <option value="carnival">Carnival Music</option>
+                <option value="suspense">Suspense</option>
+                <option value="happy">Happy Upbeat</option>
+                <option value="retro">Retro Arcade</option>
+            </select>
+            
+            <label>Volume:</label>
+            <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.7">
+        </div>
+        
+        <!-- Tab Cheat -->
+        <div id="cheat" class="tab-content">
+            <h2>🎮 Cheat System</h2>
+            
+            <label class="switch">
+                <input type="checkbox" id="cheat-toggle">
+                <span class="slider"></span>
+            </label>
+            <span>Cheat: <strong id="cheat-status">DESATIVADO</strong></span>
+            
+            <div class="cheat-info">
+                <p>⚠️ <strong>Funcionalidade Especial:</strong></p>
+                <p>Quando ativado e os nomes "thales" e "po" estiverem na roleta,</p>
+                <p>o resultado sempre será "p.o"</p>
+            </div>
+        </div>
+        
+        <div class="settings-footer">
+            <button onclick="salvarConfiguracoes(true)" class="btn-save">💾 Salvar Configurações</button>
+            <button onclick="carregarPadrao()" class="btn-default">🔄 Padrão</button>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

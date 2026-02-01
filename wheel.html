@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Roleta - Roleta da Sorte</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-rgb">
+    <div class="container">
+        <header>
+            <h1 data-text="🎡 Gire a Roleta!">🎡 Gire a Roleta!</h1>
+            <a href="index.html" class="btn-back">← Voltar</a>
+        </header>
+
+        <div id="cheat-indicator" class="cheat-indicator" aria-live="polite"></div>
+        
+        <div class="wheel-container">
+            <canvas id="wheel" width="800" height="800"></canvas>
+            <div class="wheel-pointer"></div>
+            <button id="spin-btn" class="spin-button" onclick="girarRoleta()">
+                <i class="fas fa-sync-alt"></i> GIRAR
+            </button>
+        </div>
+        
+        <div id="result-display" class="result-modal">
+            <h2>🎉 Resultado:</h2>
+            <p id="result-text">Clique em GIRAR para começar!</p>
+            <button onclick="novoGiro()" class="btn-retry">🔄 Novo Giro</button>
+        </div>
+
+        <div id="empty-warning" class="empty-warning" aria-live="polite">
+            😅 Acabaram os itens! Vá em Configurações para adicionar mais.
+        </div>
+        
+        <div class="wheel-controls">
+            <button onclick="irParaConfiguracoes()" class="btn-config">
+                <i class="fas fa-cog"></i> Configurações
+            </button>
+            <span id="item-count">0 itens</span>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="js/wheel.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

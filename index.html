@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta da Sorte</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-rgb">
+    <div class="container">
+        <header>
+            <h1 data-text="🎡 Roleta da Sorte">🎡 Roleta da Sorte</h1>
+            <p>Escolha aleatoriamente pessoas, funções, jogos e muito mais!</p>
+        </header>
+        
+        <div class="options-grid">
+            <a href="wheel.html" class="option-card">
+                <i class="fas fa-sync-alt"></i>
+                <h2>Girar Roleta</h2>
+                <p>Comece a girar agora!</p>
+            </a>
+            
+            <a href="settings.html" class="option-card">
+                <i class="fas fa-cog"></i>
+                <h2>Configurações</h2>
+                <p>Personalize sua roleta</p>
+            </a>
+            
+            <a href="#" class="option-card" onclick="loadPreset('pessoas')">
+                <i class="fas fa-users"></i>
+                <h2>Pessoas</h2>
+                <p>Escolher entre pessoas</p>
+            </a>
+            
+            <a href="#" class="option-card" onclick="loadPreset('jogos')">
+                <i class="fas fa-gamepad"></i>
+                <h2>Jogos</h2>
+                <p>Escolher jogos</p>
+            </a>
+
+            <a href="#" class="option-card" onclick="loadPreset('brincadeiras')">
+                <i class="fas fa-face-laugh-wink"></i>
+                <h2>Brincadeiras</h2>
+                <p>Ideias rápidas e divertidas</p>
+            </a>
+
+            <a href="#" class="option-card" onclick="loadPreset('funcoes')">
+                <i class="fas fa-list-check"></i>
+                <h2>Funções</h2>
+                <p>Distribuir tarefas</p>
+            </a>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

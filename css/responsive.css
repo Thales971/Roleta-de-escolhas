@@ -1,0 +1,46 @@
+@media (max-width: 900px) {
+    header h1 {
+        font-size: 2.4em;
+    }
+
+    .wheel {
+        width: 420px;
+        height: 420px;
+    }
+
+    .wheel-segment span {
+        font-size: 16px;
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .btn-back {
+        position: static;
+        display: inline-block;
+        margin-bottom: 12px;
+    }
+
+    .wheel {
+        width: 320px;
+        height: 320px;
+    }
+
+    .spin-button {
+        padding: 16px 40px;
+        font-size: 1.2em;
+    }
+
+    .result-modal #result-text {
+        font-size: 2em;
+    }
+
+    .wheel-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
